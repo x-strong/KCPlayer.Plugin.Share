@@ -24,11 +24,12 @@ namespace App.Style
         
         public static void Start()
         {
-            Ui.BackgroundImage = System.Drawing.Image.FromStream(new Resx.ResourcesHelper().GetImageStream("bs-docs-masthead-pattern.png"));
+            Ui.BackgroundImage = new Resx.ResourcesHelper().GetImage("bs-docs-masthead-pattern.png");
             Ui.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Tile;
-            Tip = new System.Windows.Forms.ToolTip();
-            Notify = new System.Windows.Forms.NotifyIcon { Icon = new System.Drawing.Icon(new Resx.ResourcesHelper().GetImageStream("Application.ico")), Visible = true, };
+            Ui.Icon = new Resx.ResourcesHelper().GetIco("Application.ico");
+            Notify = new System.Windows.Forms.NotifyIcon { Icon = Ui.Icon, Visible = true, };
             Notify.MouseClick += Notify_MouseClick;
+            Tip = new System.Windows.Forms.ToolTip();
 
             HCursors = System.Windows.Forms.Cursors.Hand;
             Align = System.Drawing.ContentAlignment.MiddleCenter;

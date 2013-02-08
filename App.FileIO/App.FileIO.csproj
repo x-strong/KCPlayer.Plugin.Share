@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base.cs" />
+    <Compile Include="BaseCom.cs" />
+    <Compile Include="BaseFile.cs" />
+    <Compile Include="BaseString.cs" />
     <Compile Include="ComPressHelper.cs" />
     <Compile Include="EnDecryptHelper.cs" />
     <Compile Include="MovieModel.cs" />

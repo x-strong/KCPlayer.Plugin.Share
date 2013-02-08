@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,20 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseImage.cs" />
+    <Compile Include="BaseString.cs" />
     <Compile Include="ResourcesHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Image\Application.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Image\golden_beach.jpg" />
+    <EmbeddedResource Include="ICO\Application.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Image\bs-docs-masthead-pattern.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Image\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="File\" />
+    <Folder Include="Sound\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

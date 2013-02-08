@@ -11,7 +11,7 @@ namespace App.Style
             {
                 Size = new System.Drawing.Size(35, 35),
                 Dock = System.Windows.Forms.DockStyle.Left,
-                Image = System.Drawing.Image.FromStream(new Resx.ResourcesHelper().GetImageStream("search.png")),
+                Image = new Resx.ResourcesHelper().GetImage("search.png"),
                 SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom,
             };
             Controls.Add(searchico);

@@ -100,65 +100,6 @@
             }
         }
 
-        protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, System.Windows.Forms.Keys keyData)
-        //取消方向键对控件的焦点的控件，用自己自定义的函数处理各个方向键的处理函数
-        {
-            switch (keyData)
-            {
-                case System.Windows.Forms.Keys.Up:
-                    {
-                    }
-                    return true;
-                case System.Windows.Forms.Keys.Down:
-                    {
-                    }
-                    return true;
-                case System.Windows.Forms.Keys.Left:
-                    {
-                    }
-                    return true;
-                case System.Windows.Forms.Keys.Right:
-                    {
-                    }
-                    return true;
-                case System.Windows.Forms.Keys.Delete:
-                    {
-                    }
-                    break;
-                case System.Windows.Forms.Keys.Escape:
-                    {
-                    }
-                    break;
-                // 更换库外图
-                case System.Windows.Forms.Keys.F8:
-                    {
-                    }
-                    break;
-                // 添加到库内
-                case System.Windows.Forms.Keys.F9:
-                    {
-                    }
-                    break;
-                // 切换全屏
-                case System.Windows.Forms.Keys.F10:
-                    {
-                    }
-                    break;
-                // 切换视图
-                case System.Windows.Forms.Keys.F12:
-                    {
-                    }
-                    break;
-                // 进行诊断
-                case System.Windows.Forms.Keys.F11:
-                    {
-                    }
-                    break;
-            }
-
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
         private const int CsDropShadow = 0x20000;
         private const int GclStyle = (-26);
 
