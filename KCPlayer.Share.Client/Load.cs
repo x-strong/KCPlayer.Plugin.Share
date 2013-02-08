@@ -1,94 +1,45 @@
-﻿using System.Linq;
-
-namespace KCPlayer.Share.Client
+﻿namespace KCPlayer.Share.Client
 {
     public class Load
     {
-        private static App.Style.ListItemBarFly ListItemFly { get; set; }
-
-        public static void Start()
+        public static App.FileIO.MovieModel Demoitem = new App.FileIO.MovieModel
         {
-            App.Style.Helper.Ui.Load += Ui_Load; 
-        }
-
-        static void Ui_Load(object sender, System.EventArgs e)
-        {
-            App.Style.Helper.Start();
-            App.Guard.OptimizeHelper.Start();
-            App.Style.Helper.Ui.Controls.Add(new App.Style.NavPal(5, false));
-            LoadNavList();
-        }
-
-        #region LoadNavList
-
-        private static void LoadNavList()
-        {
-            var btnsharecell = new App.Style.ListNavBarBase(@"分享");
-            var btnshare = new App.Style.ListNavBarPal { Location = new System.Drawing.Point(30, 47 + (114 + 8) * 0) };
-            btnshare.Controls.Add(btnsharecell);
-
-            var btnrecordcell = new App.Style.ListNavBarBase(@"记录");
-            var btnrecord = new App.Style.ListNavBarPal { Location = new System.Drawing.Point(30, 47 + (114 + 8) * 1) };
-            btnrecord.Controls.Add(btnrecordcell);
-
-            var btnsearchcell = new App.Style.ListNavBarBase(@"搜索");
-            var btnsearch = new App.Style.ListNavBarPal { Location = new System.Drawing.Point(30, 47 + (114 + 8) * 2) };
-            btnsearch.Controls.Add(btnsearchcell);
-
-            App.Style.Helper.Ui.Controls.Add(btnshare);
-            App.Style.Helper.Ui.Controls.Add(btnrecord);
-            App.Style.Helper.Ui.Controls.Add(btnsearch);
-            btnsharecell.MouseClick += btnshare_MouseClick;
-            btnrecordcell.MouseClick += btnrecord_MouseClick;
-            btnsearchcell.MouseClick += btnsearch_MouseClick;
-        }
-        static void btnshare_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            foreach (var variable in App.Style.Helper.Ui.Controls.OfType<App.Style.ListItemBarFly>())
-            {
-                App.Style.Helper.Ui.Controls.Remove(variable);
-            }
-            LoadShareList();
-        }
-
-        static void btnrecord_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            foreach (var variable in App.Style.Helper.Ui.Controls.OfType<App.Style.ListItemBarFly>())
-            {
-                App.Style.Helper.Ui.Controls.Remove(variable);
-            }
-        }
-
-        static void btnsearch_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            foreach (var variable in App.Style.Helper.Ui.Controls.OfType<App.Style.ListItemBarFly>())
-            {
-                App.Style.Helper.Ui.Controls.Remove(variable);
-            }
-            var txtbox = new App.Style.ETxtBox();
-            var searchPal = new App.Style.SearchPal(txtbox)
-            {
-                Location = new System.Drawing.Point(77, 47),
-            };
-            App.Style.Helper.Ui.Controls.Add(searchPal);
-            App.Style.Helper.Tip.SetToolTip(txtbox,@"回车搜索");
-            txtbox.KeyDown += txtbox_KeyDown;
-            ListItemFly = new App.Style.ListItemBarFly { Location = new System.Drawing.Point(77, 94) };
-            App.Style.Helper.Ui.Controls.Add(ListItemFly);
-        }
-
-
-
-        static void txtbox_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            //var txt = (App.Style.ETxtBox)sender;
-            if (e.KeyCode != System.Windows.Forms.Keys.Enter) return;
-            var demoitem = new App.FileIO.MovieModel
-            {
-                Name = @"一代宗师",
-                Score = @"6.1",
-                Type = new System.Collections.Generic.List<string> {@"动作片"},
-                Url = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>>
+            Name = @"一代宗师",
+            Score = @"6.1",
+            Time = new System.Collections.Generic.Dictionary<string, string>
+                {
+                    {"中国大陆","2013-01-08"},
+                    {"香港","2013-01-10"},
+                },
+            Director = new System.Collections.Generic.List<string>
+                {
+                    @"王家卫",@"邹静之",@"徐皓峰"
+                },
+            Actor = new System.Collections.Generic.List<string>
+                {
+                    @"梁朝伟",@"章子怡",@"张震",@"宋慧乔",@"赵本山",@"小沈阳",@"王庆祥",@"张晋",@"卢海鹏",@"冯克安",@"刘家勇",@"张智霖",@"金士杰",@"徐锦江",@"刘洵", 
+                },
+            Tag = new System.Collections.Generic.List<string>
+                {
+                    @"香港",@"一代宗师",@"动作",@"文艺",@"武侠",@"叶问",@"文艺片",
+                },
+            Quote = new System.Collections.Generic.List<string>
+                {
+                    @"http://movie.douban.com/subject/3821067/",@"http://www.imdb.com/title/tt1462900",@"http://site.douban.com/107139/",
+                },
+            Share = new System.Collections.Generic.List<string>
+                {
+                    @"5L",@"CraigTaylor",
+                },
+            Type = new System.Collections.Generic.List<string>
+                {
+                    @"动作",@"武侠"
+                },
+            Image =  new System.Collections.Generic.List<string>
+                {
+                    @"http://img3.douban.com/spic/s24591423.jpg",@"http://img3.douban.com/mpic/s24591423.jpg",@"http://img3.douban.com/lpic/s24591423.jpg",
+                },
+            Url = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>>
                 {
                     {
                         "HD1280高清国语中字",
@@ -104,64 +55,53 @@ namespace KCPlayer.Share.Client
                                 "thunder://QUFmdHA6Ly9keTpkeUB4bGouMnR1LmNjOjMwMTU3L1vRuMDXz8LU2Hd3dy4ydHUuY2Nd0ru0+tfayqYuRFZEufrT79bQ19Yucm12Ylpa",
                             }
                     }
-                },
-                        
-            };
-            ListItemFly.Controls.Add(new App.Style.ListMango(demoitem));
-            //System.Windows.Forms.MessageBox.Show(@"开始搜索：" + txt.Text);
-        }
-
-
+                }
+        };
+        public static App.Style.ShareItemBarFly ShareItemFly { get; set; }
+        public static App.Style.AsideNavBarFly AsideNavFly { get; set; }
+        
+        #region 搜索变量
+        /// <summary>
+        /// 搜索关键词
+        /// </summary>
+        public const string SearchTip = @"回车搜索,无所不能";
+        /// <summary>
+        /// 搜索总面板
+        /// </summary>
+        public static App.Style.SearchItemBarPal SearchPal { get; set; }
+        /// <summary>
+        /// 搜索导航面板
+        /// </summary>
+        public static App.Style.SearchNavBarPal SearchNavPal { get; set; }
+        /// <summary>
+        /// 搜索列表面板
+        /// </summary>
+        public static App.Style.SearchItemBarFly SearchItemPal { get; set; }
+        /// <summary>
+        /// 搜索专题面板
+        /// </summary>
+        public static App.Style.SearchTopicPal SearchTopic { get; set; }
+        /// <summary>
+        /// 搜索输入面板
+        /// </summary>
+        public static App.Style.SearchInputPal SearchInput { get; set; }
         #endregion
 
-        #region LoadShareList
-
-        private static void LoadShareList()
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        public static void Start()
         {
-            ListItemFly = new App.Style.ListItemBarFly { Location = new System.Drawing.Point(77, 47),BackColor = System.Drawing.Color.White };
-            App.Style.Helper.Ui.Controls.Add(ListItemFly);
-            ListItemFly.AllowDrop = true;
-            ListItemFly.DragDrop += listItemFly_DragDrop;
-            ListItemFly.DragEnter += listItemFly_DragEnter;
-
+            App.Style.Helper.Ui.Load += Ui_Load; 
         }
 
-        static void listItemFly_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
+        static void Ui_Load(object sender, System.EventArgs e)
         {
-            #region listItemFly_DragEnter
-
-            if (e.Data.GetDataPresent(System.Windows.Forms.DataFormats.FileDrop))
-                e.Effect = System.Windows.Forms.DragDropEffects.Copy | System.Windows.Forms.DragDropEffects.None;
-            else
-                e.Effect = System.Windows.Forms.DragDropEffects.None;
-
-            #endregion
+            App.Style.Helper.Start();
+            App.Guard.OptimizeHelper.Start();
+            App.Style.Helper.Ui.Controls.Add(new App.Style.AppNav(5, false));
+            new LoadAsideNav();
         }
 
-        static void listItemFly_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
-        {
-            var dropitems = ((string[])e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop));
-            if (dropitems.IsEmptyStrings()) return;
-            foreach (var dropitem in dropitems)
-            {
-                var dropinfo = new System.IO.FileInfo(dropitem);
-                if (dropinfo.Extension.ToLower() != ".torrent") continue;
-                
-                var listitem = new App.Style.ListItemBarPal();
-                var listitemcell = new App.Style.ListNavBarBase(dropinfo.Name);
-                listitem.Controls.Add(listitemcell);
-
-                ListItemFly.Controls.Add(listitem);
-                listitemcell.MouseClick += listitemcell_MouseClick;
-            }
-        }
-
-        static void listitemcell_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-
-        } 
-
-        #endregion
-  
     }
 }

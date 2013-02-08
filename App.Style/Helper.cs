@@ -14,6 +14,7 @@ namespace App.Style
         public static System.Drawing.ContentAlignment Blign { get; set; }
         public static System.Drawing.Color Transparent = System.Drawing.Color.Transparent;
         public static string FontNormal { get; set; }
+        public static string FontSegoe { get; set; }
         public static string FontWeb { get; set; }
         public static string FontWing { get; set; }
         public static string FontSymbol { get; set; }
@@ -24,7 +25,7 @@ namespace App.Style
         
         public static void Start()
         {
-            Ui.BackgroundImage = new Resx.ResourcesHelper().GetImage("bs-docs-masthead-pattern.png");
+            // Ui.BackgroundImage = new Resx.ResourcesHelper().GetImage("bs-docs-masthead-pattern.png");
             Ui.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Tile;
             Ui.Icon = new Resx.ResourcesHelper().GetIco("Application.ico");
             Notify = new System.Windows.Forms.NotifyIcon { Icon = Ui.Icon, Visible = true, };
@@ -38,7 +39,9 @@ namespace App.Style
             FontWeb = HasThisFonts(@"Webdings")? @"Webdings": @"仿宋";
             FontWing = HasThisFonts(@"Wingdings") ? @"Wingdings" : @"仿宋";
             FontSymbol = HasThisFonts(@"Symbol") ? @"Symbol" : @"仿宋";
-            FontFang = HasThisFonts(@"方正舒体") ? @"方正舒体" : @"仿宋";
+            FontFang = HasThisFonts(@"方正舒体") ? @"方正舒体" : @"宋体";
+            FontSegoe = HasThisFonts(@"宋体") ? @"宋体" : @"宋体";
+            
             NavSize = new System.Drawing.Size(30,24);
             NavFontSize = 11F;
             All =new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<System.Drawing.Color>>();
@@ -63,7 +66,7 @@ namespace App.Style
                     // Normal Font
                     System.Drawing.Color.WhiteSmoke,
                     // Normal Back
-                    System.Drawing.Color.DodgerBlue,
+                    System.Drawing.Color.FromArgb(0, 122, 204),
                     // Hover Font
                     System.Drawing.Color.White,
                     // Hover Back
@@ -76,11 +79,11 @@ namespace App.Style
                     // Normal Font
                     System.Drawing.Color.FromArgb(60,60,60),
                     // Normal Back
-                    System.Drawing.Color.White,
+                    System.Drawing.Color.FromArgb(233,233,233),
                 };
             All.Add("TxtPal", txtPalItem);
 
-            var listMango = new System.Collections.Generic.List<System.Drawing.Color>
+            var searchItem = new System.Collections.Generic.List<System.Drawing.Color>
                 {
                     // title Font
                     System.Drawing.Color.WhiteSmoke,
@@ -95,7 +98,7 @@ namespace App.Style
                     // url Back
                     System.Drawing.Color.Transparent,
                 };
-            All.Add("ListMango", listMango);
+            All.Add("SearchItem", searchItem);
         }
 
         private static void Notify_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)

@@ -43,5 +43,13 @@
 
             #endregion
         }
+
+        public static System.Drawing.Image Webimage(this string s)
+        {
+            var wc = new System.Net.WebClient { Proxy = null };
+            var filesavepath = System.Windows.Forms.Application.StartupPath + "\\" + System.Guid.NewGuid();
+            wc.DownloadFile(s, filesavepath);
+            return System.Drawing.Image.FromFile(filesavepath);
+        }
     }
 }

@@ -48,20 +48,26 @@
     <Compile Include="ECBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Eidt.cs">
+    <Compile Include="HBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EnButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ListBar.cs">
+    <Compile Include="AppNav.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NavBar.cs">
+    <Compile Include="SearchItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ShareItem.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="AsideNav.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App.FileIO\App.FileIO.csproj">

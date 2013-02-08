@@ -52,8 +52,13 @@
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Load.cs" />
+    <Compile Include="LoadAsideNav.cs" />
+    <Compile Include="LoadSearchItem.cs" />
+    <Compile Include="LoadShareItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchInput.cs" />
+    <Compile Include="SearchTopic.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

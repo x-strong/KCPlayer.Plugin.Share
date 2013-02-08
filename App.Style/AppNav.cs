@@ -73,7 +73,7 @@ namespace App.Style
         /// <param name="e"></param>
         private static void NavBar_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            GetDownOrHover((NavBar) sender);
+            GetDownOrHover((NavBar)sender);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace App.Style
         /// <param name="e"></param>
         private static void NavBar_MouseHover(object sender, System.EventArgs e)
         {
-            GetDownOrHover((NavBar) sender);
+            GetDownOrHover((NavBar)sender);
         }
 
         /// <summary>
@@ -231,7 +231,7 @@ namespace App.Style
                     {
                         foreach (
                             var nav in
-                                Helper.Ui.Controls.OfType<NavPal>()
+                                Helper.Ui.Controls.OfType<AppNav>()
                                      .SelectMany(
                                          navPal => (navPal).Controls.OfType<Nav>().Where(nav => (nav).Text == @"2")))
                         {
@@ -331,9 +331,9 @@ namespace App.Style
     /// <summary>
     /// Nav -> NavPal
     /// </summary>
-    public class NavPal : EPanel
+    public class AppNav : EPanel
     {
-        public NavPal(int key,bool isColor)
+        public AppNav(int key,bool isColor)
         {
             switch (key)
             {
