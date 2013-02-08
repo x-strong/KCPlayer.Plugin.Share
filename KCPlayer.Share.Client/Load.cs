@@ -6,13 +6,15 @@ namespace KCPlayer.Share.Client
     {
         private static App.Style.ListItemBarFly ListItemFly { get; set; }
 
-        public static void LoadHeaderBar()
+        public static void Start()
         {
             App.Style.Helper.Ui.Load += Ui_Load; 
         }
 
         static void Ui_Load(object sender, System.EventArgs e)
         {
+            App.Style.Helper.Start();
+            App.Guard.OptimizeHelper.Start();
             App.Style.Helper.Ui.Controls.Add(new App.Style.NavPal(5, false));
             LoadNavList();
         }

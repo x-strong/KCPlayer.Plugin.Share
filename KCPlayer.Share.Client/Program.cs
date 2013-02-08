@@ -19,9 +19,7 @@ namespace KCPlayer.Share.Client
                 System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
                 
                 App.Style.Helper.Ui = new FrmMain();
-                App.Style.Helper.Start();
-                App.Guard.OptimizeHelper.Start();
-                Load.LoadHeaderBar();
+                Load.Start();
                 System.Windows.Forms.Application.Run(App.Style.Helper.Ui);
                 
             }
